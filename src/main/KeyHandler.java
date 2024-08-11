@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener{
 
-	public static boolean up, down, left, right = false;
+	public static boolean up, down, left, right, pause; //used for input commands
 	
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -18,6 +18,8 @@ public class KeyHandler implements KeyListener{
 		// TODO Auto-generated method stub
 		int code = e.getKeyCode();
 		
+		//utilizes the WASD keys
+		//W rotates the pieces while ASD translate the pieces left right or down
 		if(code==KeyEvent.VK_W)
 			up = true;
 		if(code==KeyEvent.VK_A)
@@ -26,6 +28,12 @@ public class KeyHandler implements KeyListener{
 			down = true;
 		if(code==KeyEvent.VK_D)
 			right = true;
+		if(code == KeyEvent.VK_SPACE) {//when space is pressed pauses or unpauses the game
+			if(pause)
+				pause = false;
+			else
+				pause = true;
+		}
 				
 	}
 
